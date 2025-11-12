@@ -74,7 +74,6 @@ export default function NewsletterPartners() {
               e.preventDefault();
               const form = e.currentTarget;
               const email = form.elements.namedItem("email")?.value;
-              // handle submission
               console.log("submit", email);
               form.reset();
             }}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ChevronDown } from "lucide-react"; // optional; replace with SVG if you don't want to install
+import { ChevronDown } from "lucide-react";
 
 export default function FaqSection() {
   const FAQ = [
@@ -67,7 +67,7 @@ export default function FaqSection() {
                   </span>
                 </button>
 
-                {/* content area (height animated using scrollHeight) */}
+                {/* content area */}
                 <div
                   ref={(el) => (contentRefs.current[i] = el)}
                   style={{

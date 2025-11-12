@@ -31,7 +31,6 @@ export default function AboutPage() {
       nextSlide();
     }, AUTO_ADVANCE_MS);
     return () => clearTimeout(timerRef.current);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSlide]);
 
   const handleManualGo = (index) => {
@@ -41,9 +40,7 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-[#E8E4DC]">
-      {/* container is relative so absolute elements (if any later) are scoped */}
       <div className="max-w-[1200px] mx-auto relative">
-        {/* TOP-LEFT LABEL on large screens, stacked on mobile */}
         <div className="hidden lg:block absolute left-10 top-10">
           <div className="inline-flex items-center gap-3">
             <span className="text-xs tracking-widest text-gray-700 border-l-2 border-black pl-3">ABOUT LUXORT</span>
@@ -55,7 +52,7 @@ export default function AboutPage() {
         <div className="flex pt-24 lg:pt-12">
           {/* LEFT column */}
           <aside className="hidden lg:block w-2/5 pl-10 pb-16">
-            {/* bottom-left aligned block: we'll place it using flex-col and justify-between */}
+            {/* bottom-left */}
             <div className="flex flex-col h-[calc(100vh-120px)] justify-end"> 
               <div className="max-w-xs">
                 <p className="text-lg text-gray-800 leading-relaxed mb-6">
@@ -74,7 +71,7 @@ export default function AboutPage() {
             </div>
           </aside>
 
-          {/* Right column (main content + carousel) */}
+          {/* Right column */}
           <main className="w-full lg:w-3/5 px-8 py-8 lg:pl-12 flex flex-col justify-between">
             {/* Headline & description */}
             <div className="mb-6">
@@ -141,7 +138,7 @@ export default function AboutPage() {
                 <div className="hidden lg:block w-48 h-64 rounded-md bg-gray-600" />
               </div>
 
-              {/* Controls row: left arrow - dots - right arrow */}
+              {/* Controls row*/}
               <div className="mt-6 flex items-center justify-center gap-6">
                 {/* left arrow */}
                 <button
@@ -182,24 +179,7 @@ export default function AboutPage() {
             </div>
           </main>
         </div>
-
-        {/* Mobile: left content stacked below top label for small screens */}
-        <div className="lg:hidden px-8 pb-12">
-          <div className="mt-6">
-            <p className="text-lg text-gray-800 leading-relaxed mb-4">
-              Luxort is where elegance meets comfort, creating unforgettable moments with every
-              stay. Welcome to your perfect escape.
-            </p>
-
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-gray-400" />
-              <div>
-                <p className="text-sm font-medium text-gray-900">Roberto Pollye</p>
-                <p className="text-xs text-gray-600">Founder of Luxort</p>
-              </div>
-            </div>
-          </div>
-        </div>
+   
       </div>
     </div>
   );

@@ -10,10 +10,10 @@ export default function Footer() {
       {/* main content */}
       <div className="max-w-7xl mx-auto px- py-14 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* left: logo + description (spans 6 on lg) */}
+          {/* left */}
           <div className="lg:col-span-6">
             <div className="flex items-start gap-4">
-              {/* Logo placeholder: replace with <Image /> or svg */}
+              {/* Logo placeholder*/}
               <div className="w-12 h-12 rounded-full  flex items-center justify-center shrink-0">
                 <GrSun size={40} className="text-white" />
               </div>
@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* right: two columns (Quick Links, Social Media) */}
+          {/* right */}
           <div className="lg:col-span-5">
             <div className="grid grid-cols-2 gap-0 justify-end">
               {/* Quick Links */}
