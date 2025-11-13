@@ -19,7 +19,7 @@ export default function AboutPage() {
   const goTo = (index) => {
     const next = ((index % slides.length) + slides.length) % slides.length;
     setCurrentSlide(next);
-    progressKeyRef.current += 1;
+    progressKeyRef.current += 1; // reset progress animation
   };
 
   const nextSlide = () => goTo(currentSlide + 1);
@@ -46,7 +46,6 @@ export default function AboutPage() {
             <span className="text-xs tracking-widest text-gray-700 border-l-2 border-black pl-3">ABOUT LUXORT</span>
           </div>
         </div>
-
 
         {/* MAIN ROW */}
         <div className="flex pt-24 lg:pt-12">
@@ -93,8 +92,24 @@ export default function AboutPage() {
               <div className="flex items-start gap-6">
                 {/* central big card */}
                 <div className="flex-1 rounded-md overflow-hidden bg-white">
-                  {/* image area */}
-                  <div className={`w-full h-64 ${"bg-luxort-activeContainer"}`} />
+                  {/* image area - progress moved here */}
+                  <div className={`w-full h-64 ${"bg-luxort-activeContainer"} relative`}>
+                    {/* progress inside image area (bottom) */}
+                    <div className="absolute left-4 right-4 bottom-4">
+                      <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                        <motion.div
+                          key={progressKeyRef.current}
+                          initial={{ width: "0%" }}
+                          animate={{ width: "100%" }}
+                          transition={{
+                            duration: AUTO_ADVANCE_MS / 1000,
+                            ease: "linear",
+                          }}
+                          className="h-full bg-[#FFFFFF]"
+                        />
+                      </div>
+                    </div>
+                  </div>
 
                   {/* footer inside card */}
                   <div className="bg-white p-4">
@@ -118,19 +133,7 @@ export default function AboutPage() {
                       </button>
                     </div>
 
-                    {/* progress inside card */}
-                    <div className="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
-                      <motion.div
-                        key={progressKeyRef.current}
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
-                        transition={{
-                          duration: AUTO_ADVANCE_MS / 1000,
-                          ease: "linear",
-                        }}
-                        className="h-full bg-[#1A2B1A]"
-                      />
-                    </div>
+                    {/* NOTE: progress removed from footer (now inside image) */}
                   </div>
                 </div>
 
@@ -179,7 +182,6 @@ export default function AboutPage() {
             </div>
           </main>
         </div>
-   
       </div>
     </div>
   );
