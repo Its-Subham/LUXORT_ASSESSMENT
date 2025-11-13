@@ -15,7 +15,7 @@ export default function TestimonialsMarquee() {
   const duplicated = [...TESTIMONIALS, ...TESTIMONIALS];
 
   return (
-    <section className="bg-[#F5F3EC] py-20 px-6 relative">
+    <section className="py-20 px-6 relative">
       <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 items-start relative z-10 items-center">
         {/* Left heading column */}
         <div className="col-span-12 lg:col-span-4 ">

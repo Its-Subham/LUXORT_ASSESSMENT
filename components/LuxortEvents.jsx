@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export default function LuxortEvents() {
-  const AUTO_ADVANCE_MS = 4000; // milliseconds per slide (change to your liking)
+  const AUTO_ADVANCE_MS = 4000; // milliseconds per slide 
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -72,8 +72,8 @@ export default function LuxortEvents() {
               const zIndex = isActive ? 20 : 10;
               const cardWidth = isActive ? 520 : 340;
 
-            
               const imageBgClass = isActive ? "bg-luxort-activeContainer" : "bg-luxort-darkgreen bg-opacity-[40%]";
+              // labelColor won't matter for inactive because label isn't rendered
               const labelColor = isActive ? "text-gray-700" : "text-white";
 
               return (
@@ -104,15 +104,26 @@ export default function LuxortEvents() {
                 >
                   {/* colored "image" area */}
                   <div
-                    className={`${imageBgClass} flex-1 flex items-center justify-center`}
+                    className={`${imageBgClass} flex-1 flex items-center justify-center relative`}
                     style={{ minHeight: 160 }}
                   >
-                    <span className={`uppercase tracking-wider text-sm ${labelColor}`}>
-                      {item.label}
-                    </span>
+                    
+
+                    {/* Progress bar moved INSIDE image area and shows only for active */}
+                    {isActive && (
+                      <div className="absolute bottom-3 left-3 right-3 h-2 rounded bg-gray-200 overflow-hidden">
+                        <motion.div
+                          key={`progress-${currentSlide}`}
+                          initial={{ width: "0%" }}
+                          animate={{ width: "100%" }}
+                          transition={{ duration: AUTO_ADVANCE_MS / 1000, ease: "linear" }}
+                          className="h-full bg-[#FFFFFF]"
+                        />
+                      </div>
+                    )}
                   </div>
 
-                  {/* bottom area */}
+                  {/* bottom area: render only for active (inactive -> nothing) */}
                   <AnimatePresence mode="wait">
                     {isActive ? (
                       <motion.div
@@ -141,44 +152,15 @@ export default function LuxortEvents() {
                           </button>
                         </div>
 
-                        {/* progress bar: restarts each slide */}
-                        <div className="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
-                          <motion.div
-                            key={`progress-${currentSlide}`}
-                            initial={{ width: "0%" }}
-                            animate={{ width: "100%" }}
-                            transition={{ duration: AUTO_ADVANCE_MS / 1000, ease: "linear" }}
-                            className="h-full bg-[#1A2B1A]"
-                          />
-                        </div>
+                        {/* progress removed from here (it's inside image now) */}
                       </motion.div>
-                    ) : (
-                      <motion.div
-                        key={`inactive-${item.id}`}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="bg-white p-3"
-                      >
-                        <div className="text-sm text-gray-500">{`0${i + 1} — ${item.label}`}</div>
-                      </motion.div>
-                    )}
+                    ) : null}
                   </AnimatePresence>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Right-bottom Next button */}
-          <div className="absolute right-4 bottom-6">
-            <button
-              onClick={nextSlide}
-              className="bg-white/90 px-3 py-2 rounded shadow hover:bg-white transition"
-              aria-label="Advance"
-            >
-              <ArrowRight size={18} />
-            </button>
-          </div>
         </div>
       </section>
     </div>
