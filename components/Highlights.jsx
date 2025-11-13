@@ -12,7 +12,7 @@ export default function Highlights() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-[#f5f3ec] py-10 px-4">
+    <section className="py-10 px-4">
       {/* Container */}
       <div className="max-w-6xl mx-auto">
         {/* Small header above title */}
@@ -53,7 +53,7 @@ export default function Highlights() {
 
           {/* large content area (the grey rounded box) */}
           <div className="">
-            <div className="bg-gray-300 rounded-md h-82 md:h-96 border border-gray-200 shadow-inner p-6">
+            <div className="bg-luxort-activeContainer rounded-md h-82 md:h-96 border border-gray-200 shadow-inner p-6">
               
               <div className="w-full h-full flex items-center justify-center text-gray-700">
                 <div className="text-center">

@@ -24,7 +24,7 @@ export default function NewsletterPartners() {
   return (
     <div className="w-full">
       {/* Marquee: trusted partners */}
-      <div className="bg-[#F5F3EC]">
+      <div className="">
         <div className="max-w-8xl mx-auto px-6 py-6 relative">
           <div className="text-center text-xs text-gray-500 tracking-wider">
             TRUSTED PARTNERS
@@ -56,7 +56,7 @@ export default function NewsletterPartners() {
       </div>
 
       {/* Newsletter*/}
-      <section className="bg-[#44504c] text-white py-20">
+      <section className="bg-[#0A1F1A] bg-opacity-[60%] text-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           {/* big serif-like heading */}
           <h2
@@ -90,7 +90,7 @@ export default function NewsletterPartners() {
 
             <button
               type="submit"
-              className="w-[240px] max-w-full bg-[#163726] hover:bg-[#0f2a1d] transition-all text-white px-4 py-3 rounded-md shadow-md"
+              className="w-[240px] max-w-full bg-luxort-btnGreen hover:bg-[#0f2a1d] transition-all text-white px-4 py-3 rounded-md shadow-md"
             >
               SUBMIT
             </button>

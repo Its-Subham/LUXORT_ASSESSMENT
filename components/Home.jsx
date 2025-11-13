@@ -74,7 +74,7 @@ export default function Home() {
       </nav>
 
       {/* ===== Offer Bar ===== */}
-      <div className="bg-[#1A2B1A] text-white text-sm py-2 overflow-hidden whitespace-nowrap">
+      <div className="bg-luxort-btnGreen text-white text-sm py-2 overflow-hidden whitespace-nowrap">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
@@ -119,7 +119,7 @@ export default function Home() {
             tranquility.
           </p>
           <div className="flex gap-4">
-            <button className="bg-[#1A2B1A] text-white px-6 py-3 rounded-md hover:opacity-80 transition">
+            <button className="bg-luxort-btnGreen text-white px-6 py-3 rounded-md hover:opacity-80 transition">
               BOOK YOUR STAY
             </button>
             <button className="border border-gray-400 px-6 py-3 rounded-md hover:bg-gray-200 transition">
@@ -141,7 +141,7 @@ export default function Home() {
             const cardWidth = isActive ? 520 : 340;
 
             // Active = light gray, Inactive = dark gray
-            const bgColor = isActive ? "bg-gray-300" : "bg-gray-600";
+            const bgColor = isActive ? "bg-luxort-activeContainer" : "bg-luxort-darkgreen bg-opacity-[40%]";
             const textColor = isActive ? "text-gray-800" : "text-white";
 
             return (
@@ -149,7 +149,7 @@ export default function Home() {
                 key={item.id}
                 layout
                 onClick={() => setActive(i)}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{
                   opacity: 1,
                   y: isActive ? 0 : 6,

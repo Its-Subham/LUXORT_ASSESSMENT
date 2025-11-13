@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useLayoutEffect } from "react";
 import { ChevronDown } from "lucide-react";
 
 export default function FaqSection() {
@@ -30,8 +30,24 @@ export default function FaqSection() {
     setOpenIndex((prev) => (prev === i ? -1 : i));
   };
 
+  // Whenever openIndex changes, update the maxHeight for refs
+  useLayoutEffect(() => {
+    // Close all first
+    contentRefs.current.forEach((el, idx) => {
+      if (!el) return;
+      if (idx === openIndex) {
+        // set to scrollHeight to open (use px)
+        el.style.maxHeight = `${el.scrollHeight}px`;
+        el.style.opacity = "1";
+      } else {
+        el.style.maxHeight = "0px";
+        el.style.opacity = "0";
+      }
+    });
+  }, [openIndex, FAQ.length]);
+
   return (
-    <section className="bg-[#f5f3ec] py-16 px-6">
+    <section className="py-16 px-6">
       <div className="max-w-3xl mx-auto">
         <p className="text-center text-xs tracking-widest text-gray-500 mb-6">FAQ</p>
 
@@ -56,11 +72,8 @@ export default function FaqSection() {
                     {item.q}
                   </span>
 
-                  {/* chevron */}
                   <span
-                    className={`transform transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-gray-600" : "rotate-0 text-gray-400"
-                    }`}
+                    className={`transform transition-transform duration-300 ${isOpen ? "rotate-180 text-gray-600" : "rotate-0 text-gray-400"}`}
                     aria-hidden
                   >
                     <ChevronDown size={18} />
@@ -70,12 +83,11 @@ export default function FaqSection() {
                 {/* content area */}
                 <div
                   ref={(el) => (contentRefs.current[i] = el)}
+                  // don't set maxHeight here — it's handled in useLayoutEffect
                   style={{
-                    maxHeight: isOpen
-                      ? `${contentRefs.current[i]?.scrollHeight ?? 0}px`
-                      : "0px",
+                    maxHeight: i === openIndex ? undefined : "0px", // fallback for non-JS or before effect
                     transition: "max-height 350ms ease, opacity 250ms ease",
-                    opacity: isOpen ? 1 : 0,
+                    opacity: i === openIndex ? 1 : 0,
                   }}
                   className="px-6 overflow-hidden"
                 >
@@ -89,4 +101,3 @@ export default function FaqSection() {
     </section>
   );
 }
-

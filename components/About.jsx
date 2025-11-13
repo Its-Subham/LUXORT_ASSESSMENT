@@ -39,8 +39,8 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#E8E4DC]">
-      <div className="max-w-[1200px] mx-auto relative">
+    <div className="min-h-screen px-10">
+      <div className=" mx-auto relative">
         <div className="hidden lg:block absolute left-10 top-10">
           <div className="inline-flex items-center gap-3">
             <span className="text-xs tracking-widest text-gray-700 border-l-2 border-black pl-3">ABOUT LUXORT</span>
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 {/* central big card */}
                 <div className="flex-1 rounded-md overflow-hidden bg-white">
                   {/* image area */}
-                  <div className={`w-full h-64 ${"bg-gray-300"}`} />
+                  <div className={`w-full h-64 ${"bg-luxort-activeContainer"}`} />
 
                   {/* footer inside card */}
                   <div className="bg-white p-4">
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* right peeking card */}
-                <div className="hidden lg:block w-48 h-64 rounded-md bg-gray-600" />
+                <div className="hidden lg:block w-48 h-64 rounded-md bg-luxort-darkgreen bg-opacity-[40%]" />
               </div>
 
               {/* Controls row*/}

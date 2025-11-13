@@ -8,10 +8,11 @@ module.exports = {
     extend: {
       colors: {
         luxort: {
-          cream: '#F3EFE6',
+          cream: '#F6F4E9',
           pale: '#F6F4EE',
-          darkgreen: '#25322E',
-          deepgreen: '#15302B',
+          btnGreen: '#143F35',
+          activeContainer: '#C4C4C4',
+          darkgreen: '#0A1F1A',
           accent: '#2F4B46'
         }
       },

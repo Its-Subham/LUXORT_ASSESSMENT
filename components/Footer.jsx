@@ -6,7 +6,7 @@ import { GrSun } from "react-icons/gr";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f2a22] text-[#cfe3d8]">
+    <footer className="bg-luxort-darkgreen text-[#cfe3d8]">
       {/* main content */}
       <div className="max-w-7xl mx-auto px- py-14 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

@@ -26,7 +26,7 @@ export default function TestimonialsMarquee() {
           <p className="text-sm text-gray-600 mb-8 max-w-md">
             Exceptional Experiences, Shared by Those Who've Lived Them.
           </p>
-          <button className="inline-block bg-[#163726] text-white px-6 py-3 rounded shadow-lg text-sm tracking-wide hover:bg-[#0f2a1d] transition-all">
+          <button className="inline-block bg-luxort-btnGreen text-white px-6 py-3 rounded shadow-lg text-sm tracking-wide hover:bg-[#0f2a1d] transition-all">
             READ MORE TESTIMONIALS
           </button>
         </div>

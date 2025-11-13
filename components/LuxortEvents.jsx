@@ -43,7 +43,7 @@ export default function LuxortEvents() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#E8E4DC] px-12 py-16">
+    <div className="min-h-screen px-12 py-16">
       {/* Header */}
       <div className="mb-16">
         <h2 className="text-sm tracking-widest text-gray-700 mb-8 border-l-2 border-black pl-3">
@@ -72,8 +72,8 @@ export default function LuxortEvents() {
               const zIndex = isActive ? 20 : 10;
               const cardWidth = isActive ? 520 : 340;
 
-              // active: light gray; inactive: dark gray
-              const imageBgClass = isActive ? "bg-gray-300" : "bg-gray-600";
+            
+              const imageBgClass = isActive ? "bg-luxort-activeContainer" : "bg-luxort-darkgreen bg-opacity-[40%]";
               const labelColor = isActive ? "text-gray-700" : "text-white";
 
               return (
@@ -93,7 +93,7 @@ export default function LuxortEvents() {
                       : "0 6px 16px rgba(15,43,34,0.06)",
                   }}
                   transition={{ type: "spring", stiffness: 120, damping: 18 }}
-                  className="rounded-lg overflow-hidden bg-white cursor-pointer relative"
+                  className="rounded-lg overflow-hidden cursor-pointer relative"
                   style={{
                     width: cardWidth,
                     zIndex,
